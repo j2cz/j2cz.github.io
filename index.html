@@ -15,7 +15,6 @@
     p {
       font-family: Inter, Arial, sans-serif;
       font-weight: 300;
-      font-size: 2.5rem;
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -24,11 +23,45 @@
       color: 97CAEF
     }
     
+    // If on phone, smaller text, margins, & banner image
+    @media (max-width: 544px) {
+      p {
+        font-size: 2rem;
+      }
+      
+      .main {
+        margin-left:8%; 
+        margin-right:8%;
+      }
+      
+      .banner-image {
+        background-image: url('images/sur_waves_2.png'); 
+        height:7rem;
+      }
+    }
+    
+    // If not on phone, bigger text, margins, & banner image
+    @media (min-width: 544px) {
+      p {
+        font-size: 2.5rem;
+      }
+      
+      .main {
+        margin-left:20%; 
+        margin-right:20%;
+      }
+      
+      .banner-image {
+        background-image: url('images/sur_waves_2.png'); 
+        height:14rem;
+      }
+    }
+    
   </style>
 </head>
 
 <body>
-  <div class="banner image" style="background-image: url('images/sur_waves_2.png'); height:14rem;">
+  <div class="banner-image">
     <nav class="navbar navbar-dark navbar-expand-lg">
     <a class="navbar-brand" href="http://jchavez.io">jchavez.io</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +76,7 @@
     </div>
   </div>
       
-  <div class="main" style="margin-left:20%; margin-right:20%;">  
+  <div class="main">  
     <p>
       Hi. My name is John. I'm a 22 year old data analyst in the Bay. <br>
       Check out my <a href="http://jchavez.io/mortgage">latest blog</a>. <br>
