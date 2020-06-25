@@ -1,4 +1,3 @@
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,13 +41,21 @@
       border: 1px solid #FFFFFF;
     }
 
-    .sur-outline {
-      color: white;
-      text-shadow:
-        0.5px 0.5px 0 #50777E,
-        0.5px -0.5px 0 #50777E,
-        -0.5px 0.5px 0 #50777E,
-        -0.5px -0.5px 0 #50777E;
+    /* If on phone, card decks have slight bezels & custom centering */
+    @media (max-width: 544px) {
+      .card-deck {
+        padding-right: 0.6rem;
+        padding-left: 0.6rem;
+        text-align:center;
+        display:inline-block;
+      }
+    }
+    /* If not on phone, card decks have main margins */
+    @media (min-width: 544px) {
+      .card-deck {
+        margin-left: 20%;
+        margin-right:20%;
+      }
     }
 
   </style>
@@ -57,7 +64,7 @@
 <body>
   <!--style="background-image: url('http://jchavez.io/images/sur_waves_2.png'); min-height:6rem; background-size:100%; margin-bottom:2.5rem; font-size:2rem;"-->
   <!-- Banner & Navbar -->
-  <nav class="navbar navbar-light" style="background-image: url('https://i.postimg.cc/HYbGqRvR/sur-waves-2.jpg'); min-height:6rem; background-size:100%; background-repeat: no-repeat; margin-bottom:2.5rem; font-size:2rem;" width="100%">
+  <nav class="navbar navbar-light" style="background-image: url('https://i.postimg.cc/HYbGqRvR/sur-waves-2.jpg'); min-height:6rem; background-size:100%; background-repeat: no-repeat; margin-bottom:2.5rem; font-size:2rem;" width="100%" height=100%>
     <!--<a class="navbar-item mr-auto sur-outline" href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width: 30%"/></a>-->
     <a href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width:10rem; display:table-cell; vertical-align:middle;"/></a>
     <a hclass="nav-link ml-auto" ref="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,10 +81,9 @@
   <div class="main" style="margin-left:20%; margin-right:20%;">
     <p style="font-size:2.5rem; margin-bottom:2.5rem;"> Hi. My name is John.</p>
     <p style="margin-bottom:2.5rem;">I'm a data analyst in the Bay.</p>
-
     <p> Check out my latest <a href="http://jchavez.io/mortgage">blog posts</a>. <br> </p>
-
-    <div class="card-deck" style="margin-left:2%; margin-right:2%">
+  </div>
+    <div class="card-deck" style="margin-top: 1rem;">
       <!-- Blog 1, Mortgages -->
       <div class="card" style="width: 21rem; display:inline-block; margin:0.5vw">
         <img src="https://i.postimg.cc/J1yzk8fW/mortgage-cover.png" class="card-img-top">
@@ -102,6 +108,7 @@
       </div>
     </div>
 
+  <div class="main" style="margin-left:20%; margin-right:20%;">
     <p style="margin-top:1rem;"><a href="http://jchavez.io/files/Chavez_Resume.pdf">View</a> or <a href="http://jchavez.io/files/Chavez_Resume.pdf" download>download</a> my CV.</p>
     <p style="margin-top:1rem;">Learn <a href="http://jchavez.io/about">about me</a>.</p>
     <p style="font-size:1.5rem; margin-top:1rem;">Banner photo from a June 2019 trip to Big Sur. Site source code <a href="https://github.com/j2cz/j2cz.github.io">here</a>.</p>
