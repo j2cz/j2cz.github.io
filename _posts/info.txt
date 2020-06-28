@@ -1,0 +1,1 @@
+The jekyll functionality of having a _posts folder will eventually be used on a "look at all my blog posts" page.
