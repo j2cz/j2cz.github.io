@@ -1,0 +1,80 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="John Chavez's personal site.">
+  <!-- Navbar -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- /Navbar -->
+  <title> John Chavez </title>
+  <style>
+
+    p {
+      /*font-family: Inter, Arial, sans-serif;*/
+      font-weight: 300;
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    a, a:hover {
+      color: #50777E;
+      font-weight:bold;
+    }
+
+    .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary:visited {
+      background-color: rgb(255, 255, 255);
+      border-color: #50777E;
+      color: #50777E;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #50777E;
+        border-color: #50777E;
+        color: rgb(255,255,255);
+    }
+
+    .card {
+      border: 1px solid #FFFFFF;
+    }
+
+    /* If on phone, card decks have slight bezels & custom centering */
+    @media (max-width: 544px) {
+      .card-deck {
+        padding-right: 0.6rem;
+        padding-left: 0.6rem;
+        text-align:center;
+        display:inline-block;
+      }
+    }
+    /* If not on phone, card decks have main margins */
+    @media (min-width: 544px) {
+      .card-deck {
+        margin-left: 20%;
+        margin-right:20%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <!--style="background-image: url('http://jchavez.io/images/sur_waves_2.png'); min-height:6rem; background-size:100%; margin-bottom:2.5rem; font-size:2rem;"-->
+  <!-- Banner & Navbar -->
+  <nav class="navbar navbar-light" style="background-image: url('https://i.postimg.cc/HYbGqRvR/sur-waves-2.jpg'); min-height:6rem; background-size:100%; background-repeat: no-repeat; margin-bottom:2.5rem; font-size:2rem;" width="100%" height=100%>
+    <!--<a class="navbar-item mr-auto sur-outline" href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width: 30%"/></a>-->
+    <a href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width:10rem; display:table-cell; vertical-align:middle;"/></a>
+    <a hclass="nav-link ml-auto" ref="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <img src="https://i.postimg.cc/nh6PSgMc/toggl2e.png" style="width:3rem;">
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink2">
+       <a class="dropdown-item" href="http://jchavez.io/mortgage">Blog</a>
+       <a class="dropdown-item" href="http://jchavez.io">About</a>
+       <a class="dropdown-item" href="http://jchavez.io/files/Chavez_Resume.pdf">CV</a>
+    </div>
+  </nav>
+ {{ content }}
+ </body>
