@@ -1,0 +1,3 @@
+No use making a _posts (jekyll posts folder) cuz any rmd file I'll make will be .html not .md.
+
+This folder is just here for a nicer url and some organization.
