@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="John Chavez" />
+
+<meta name="date" content="2020-08-03" />
+
+<title>How to Create HTTPS Proxy Servers with Go</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="rmd-style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-fixed-top" role="navigation" style="background-image: url('https://jchavez.io/images/sur_waves_2.jpg'); min-height:9.55rem; background-size:100%; background-repeat: no-repeat; margin-bottom:2.5rem; font-size:2rem;" width="100%" height="100%">
+    <a href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width:15.916666667rem; vertical-align:middle; margin-top:1.5rem; margin-left:1.5rem;"/></a>
+    <a class="nav-link" ref="#" id="tog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right !important;">
+      <img src="https://i.postimg.cc/nh6PSgMc/toggl2e.png" style="width:5.6rem; margin-top:2rem; margin-right:1.5rem;">
+    </a>  
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tog">
+       <a class="dropdown-item" href="http://jchavez.io/mortgage">Blog</a>
+       <a class="dropdown-item" href="http://jchavez.io/about">About</a>
+       <a class="dropdown-item" href="http://jchavez.io/files/Chavez_Resume.pdf">CV</a>
+    </div>
+    <!--<ul class="nav navbar-nav navbar-right"><li><a href="https://jchavez.io">BACK</a></li></ul>-->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">How to Create HTTPS Proxy Servers with Go</h1>
+<h4 class="author">John Chavez</h4>
+<h4 class="date">August 3, 2020</h4>
+
+</div>
+
+
+<p align="center">
+<img src="https://i.postimg.cc/mgP9sFBy/secure.png" border="1" style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; margin:2rem;">
+</p>
+<div id="intro" class="section level2">
+<h2>Intro</h2>
+<p>Have you ever wanted to put your files in one place and be able to access them from all of your devices? Or maybe you’ve done some cool work in a Jupyter Notebook or RStudio, and wanted to show it to your friends, but then realized that you can’t pull your work up on your phone?</p>
+<p>Having a secure personal server can solve both of these problems, and much more. I personally use the method described here to run 3 process on HTTPS 24/7, including my <a href="https://droplet.cf:9090">file browser</a>, <a href="https://droplet.cf:8788">RStudio</a>, and <a href="https://droplet.cf:1998">Urbit</a>. (These are all password protected, obviously.)</p>
+<p><br></p>
+</div>
+<div id="the-code" class="section level2">
+<h2>The Code</h2>
+<p>If you’re reading this just to see the Go code, here it is:</p>
+<pre class="go"><code>package custom
+
+import(
+    &quot;log&quot;
+    &quot;net/http&quot;
+    &quot;net/http/httputil&quot;
+    &quot;net/url&quot;
+)
+
+func MakeProxy(origin, target string){
+    
+    og, _ := url.Parse(origin)
+    
+    d := func(req *http.Request){
+        req.Header.Add(&quot;X-Forwarded-Host&quot;, req.Host)
+        req.Header.Add(&quot;X-Origin-Host&quot;, og.Host)
+        req.URL.Scheme = &quot;http&quot;
+        req.URL.Host = og.Host
+    }
+    
+    proxy := &amp;httputil.ReverseProxy{Director: d}
+    
+    http.HandleFunc(&quot;/&quot;,
+        func(w http.ResponseWriter, r *http.Request){
+            proxy.ServeHTTP(w,r)
+        })
+        
+    cert := &quot;/home/jc/file-home/go/pems/cert.pem&quot;
+    key := &quot;/home/jc/file-home/go/pems/privkey.pem&quot;
+    
+    log.Fatal(http.ListenAndServeTLS(target, cert, key, nil))
+
+}</code></pre>
+<p>Replace cert &amp; key with the paths to your own SSL certificate files. Then, run each proxy in its own script such as:</p>
+<pre class="go"><code>package main
+
+import &quot;custom&quot;
+
+func main() {
+    custom.MakeProxy(&quot;http://localhost:8080&quot;, &quot;:9090&quot;)
+}</code></pre>
+<p>If you’d like a more in-depth explanation of this script and how to set it up, then continue reading.</p>
+<p><br></p>
+</div>
+<div id="why-https" class="section level2">
+<h2>Why HTTPS?</h2>
+<p>There are plenty of online guides that can teach you how to access processes on a computer over HTTP. For example, it’s pretty straightforward to follow <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-rstudio-on-an-ubuntu-cloud-server">this guide</a> and access an always-on RStudio server session.</p>
+<p>However, none of these guides make note of the serious security risks that come with using HTTP. Anybody can snoop on the data sent via HTTP traffic. Any time you submit a password or receive data over HTTP, someone could easily intercept it. There are even free apps that spy on HTTP traffic for you, including <a href="https://www.wireshark.org/">Wireshark</a> and <a href="https://www.telerik.com/download/fiddler">Fiddler</a>.</p>
+<p>One of the best ways around this is <a href="https://ngrok.com/">ngrok</a>, which allows you to reverse proxy any loopback or HTTP process to an HTTPS ngrok.io link. However, ngrok only allows you to run 1 proxy on the free plan and 2 on the $12/month plan. This blog post might be thought of as “How to reverse-engineer your own infinite ngrok,” because the end result will be much like running as many ngroks as you’d like.</p>
+<p><br></p>
+</div>
+<div id="getting-certified" class="section level2">
+<h2>Getting certified</h2>
+<p>The first step to creating an HTTPS server is getting SSL certificates. You can do this for free by following these three steps.</p>
+<p><br></p>
+<div id="get-a-free-domain" class="section level3">
+<h3>1) Get a free domain</h3>
+<p>Let’s Encrypt requires you to have a DNS record associated with your computer. This is a bit annoying but it also makes it easier to remember your personal server’s address (i.e. <a href="https://206.189.70.108:9090" class="uri">https://206.189.70.108:9090</a> vs. <a href="https://droplet.cf:9090" class="uri">https://droplet.cf:9090</a>).</p>
+<p><a href="http://www.freenom.com/en/index.html">Freenom</a> allows you to obtain a free domain for up to a year. If this seems too good to be true, it’s because their domains have odd extensions like .cf and .tk. However, you can usually get a pretty short and good domain, like droplet.cf. I’m not sure if you can renew your subscription; I’m just waiting til a year passes and I’ll figure it out then.</p>
+<p><br></p>
+</div>
+<div id="set-dns-records" class="section level3">
+<h3>2) Set DNS Records</h3>
+<p>Once you have a domain, you want to make sure that it redirects to your server. Simply add two A records to your domain’s DNS registry: www.[domain] -&gt; [ip] and [domain] -&gt; [ip]. So, if your IP was 1.2.3.4 and your domain was hello.ml, your two A records would be <code>www.hello.ml -&gt; 1.2.3.4</code> &amp; <code>hello.ml -&gt; 1.2.3.4</code> .</p>
+<p>You can check if you’ve done this correctly if navigating to wwww.hello.ml takes you to what you’d see on 1.2.3.4:80. Run some process on port 80 to check this if you’re unsure.</p>
+<p><br></p>
+</div>
+<div id="get-ssl-certificates" class="section level3">
+<h3>3) Get SSL Certificates</h3>
+<p>Now that you’ve got a domain that redirects to your IP, all you need to do is run Certbot on your server. Follow the steps <a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-other">here</a> to run Certbot. By default, your keys will be stored in <code>/etc/letsencrypt/live/[your_domain]/</code> .</p>
+<p><br></p>
+<p>You’re good to go now! You will be able to connect these SSL certificates with any Go script or web server you’d like, and you got it all for free.</p>
+<p><br></p>
+</div>
+</div>
+<div id="running-the-server" class="section level2">
+<h2>Running the server</h2>
+<p>Now you’ve reached the fun part! You’re ready to proxy some processes over HTTPS.</p>
+<p>Start by finding your Go source directory. This is <code>$GOROOT/src</code>, which for me is <code>/usr/local/go/src</code>. This could easily be different for you; just enter <code>echo $GOROOT</code> into your terminal to find out what your root Go directory is.</p>
+<p>The way to build packages in Go is to put a folder in your Go root directory and then place your Go scripts in that folder. For me, the following Go script is located in <code>/usr/local/go/src/custom</code>, and the file is called <code>custom.go</code>:</p>
+<pre class="go"><code>package custom
+
+import(
+    &quot;log&quot;
+    &quot;net/http&quot;
+    &quot;net/http/httputil&quot;
+    &quot;net/url&quot;
+)
+
+func MakeProxy(origin, target string){
+    
+    og, _ := url.Parse(origin)
+    
+    d := func(req *http.Request){
+        req.Header.Add(&quot;X-Forwarded-Host&quot;, req.Host)
+        req.Header.Add(&quot;X-Origin-Host&quot;, og.Host)
+        req.URL.Scheme = &quot;http&quot;
+        req.URL.Host = og.Host
+    }
+    
+    proxy := &amp;httputil.ReverseProxy{Director: d}
+    
+    http.HandleFunc(&quot;/&quot;,
+        func(w http.ResponseWriter, r *http.Request){
+            proxy.ServeHTTP(w,r)
+        })
+        
+    cert := &quot;/home/jc/file-home/go/pems/cert.pem&quot;
+    key := &quot;/home/jc/file-home/go/pems/privkey.pem&quot;
+    
+    log.Fatal(http.ListenAndServeTLS(target, cert, key, nil))
+
+}</code></pre>
+<p>Thankfully for us, Go’s standard library comes prepacked with the <code>ReverseProxy</code> function in <code>net/http/httuptil</code>. This function does the bulk of the work in our script; the rest is just telling it our specific parameters (the director <code>d</code>) and serving the reverse proxy over HTTPS (the <code>HandleFunc</code> and <code>ListenAndServeTLS</code>).</p>
+<p>You need to replace the values of <code>cert</code> &amp; <code>key</code> with the filepaths for the .pem files that Certbot creates.</p>
+<p>Now that this custom package exists, we can call it in a Go script anywhere. Wherever is convenient for you, you can start an HTTPS proxy with one function call:</p>
+<pre class="go"><code>package main
+
+import &quot;custom&quot;
+
+func main() {
+    custom.MakeProxy(&quot;http://localhost:8080&quot;, &quot;:9090&quot;)
+}</code></pre>
+<p>That script is actually being run at this very moment. It proxies the loopback process of FileBrowser from port 8080 to <a href="https://droplet.cf:9090">https://droplet.cf:9090</a>. That’s all there is to it!</p>
+<p>I hope this guide serves you well. Happy proxying!</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
