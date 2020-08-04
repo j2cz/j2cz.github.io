@@ -10,6 +10,15 @@ a {
     font-weight: bold;
 }
 
+.hljs-keyword {
+    color: #00468b;
+    font-weight: bold;
+}
+
+.hljs-string, .hljs-number, .hljs-literal {
+    color: #099;
+}
+
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
     z-index: 2;
     color: #fff;
