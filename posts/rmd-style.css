@@ -1,7 +1,13 @@
 /* rmd css */
 
 p, ul, h4 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    font-family: Inter, Arial, sans-serif;
+}
+
+a {
+    color:#50777E;
+    font-weight: bold;
 }
 
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
@@ -21,6 +27,7 @@ p, ul, h4 {
     padding: .25rem 1.5rem;
     clear: both;
     font-weight: 400;
+    font-size: 1.8rem;
     color: #212529;
     text-align: inherit;
     white-space: nowrap;
@@ -32,48 +39,3 @@ p, ul, h4 {
     right: 1px;
     left: auto;
 }
-    
-/*
-div.main-container {
-    max-width: 1200px;
-    margin-top: 10vh;
-}
-
-      <!-- NOTE: add "navbar-inverse" class for an alternate navbar background -->
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">RMarkdown Website</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="PageA.html">Page A</a></li>
-        <li><a href="PageB.html">Page B</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="https://github.com">GitHub</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-
-
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink2">
-       <a class="dropdown-item" href="http://jchavez.io/mortgage">Blog</a>
-       <a class="dropdown-item" href="http://jchavez.io/about">About</a>
-       <a class="dropdown-item" href="http://jchavez.io/files/Chavez_Resume.pdf">CV</a>
-    </div>
-    
-        <a class="nav-link ml-auto" ref="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <img src="https://i.postimg.cc/nh6PSgMc/toggl2e.png" style="width:3.7rem;">
-    </a>
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation" style="background-image: url('https://jchavez.io/images/sur_waves_2.jpg'); min-height:6rem;">
-    <a href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width:10rem; vertical-align:middle;"/></a>
-    <ul class="nav navbar-nav navbar-right">
-        <!--<li><a href="https://jchavez.io">BACK</a></li>-->
-    </ul>
-</div><!--/.navbar -->
-
-*/
