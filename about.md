@@ -15,7 +15,11 @@ layout: default
 
 My name is John Chavez. I'm a data analyst living in the Bay Area. 
 
+<p style="margin-bottom:2rem;"></p>
+
 At work I build interactive dashboards for businesspeople, engineers, customers, and the general public. In my free time I'm into surfing, basketball, and reading/learning on the internet.
+
+<p style="margin-bottom:2rem;"></p>
 
 Skills
 * R
