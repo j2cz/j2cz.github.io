@@ -29,7 +29,7 @@ Skills
 * Periscope/Sisense
 * Basic html/css/js 
   * This site ([source code](https://github.com/j2cz/j2cz.github.io))
-  * And [cleanmeat.news](https://cleanmeat.news). ([Source code](https://github.com/j0hnchavez/j0hnchavez.github.io)
+  * And [cleanmeat.news](https://cleanmeat.news) ([source code](https://github.com/j0hnchavez/j0hnchavez.github.io))
 
 </div>
 
@@ -38,6 +38,6 @@ Skills
   <p id="padding" style="margin-top:6rem;"></p>
   <div class="card-header" style="text-align:right; background-image: linear-gradient(to right, rgba(119, 156, 177, .25) , rgba(119, 177, 168, .25)); color:rgba(80, 119, 126); position:absolute; bottom:0px; width:100%"> 
     Banner from a 2019 trip to Big Sur.
-    Site course code <a href="https://github.com" style="color:rgba(80, 119, 126);"> here </a>. 
+    Site source code <a href="https://github.com" style="color:rgba(80, 119, 126);"> here </a>. 
   </div>
 </div>
