@@ -10,59 +10,88 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- /Navbar -->
   <title> John Chavez </title>
-  <style>
+	<style>
+		p {
+			/*font-family: Inter, Arial, sans-serif;*/
+			font-weight: 300;
+			font-size: 2rem;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 
-    p {
-      /*font-family: Inter, Arial, sans-serif;*/
-      font-weight: 300;
-      font-size: 2rem;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+		a,
+		a:hover {
+			color: #50777E;
+			font-weight: 600;
+		}
 
-    a, a:hover {
-      color: #50777E;
-      font-weight:bold;
-    }
+		.btn-outline-primary,
+		.btn-outline-primary:active,
+		.btn-outline-primary:visited {
+			background-color: rgb(255, 255, 255);
+			border-color: #50777E;
+			color: #50777E;
+		}
 
-    .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary:visited {
-      background-color: rgb(255, 255, 255);
-      border-color: #50777E;
-      color: #50777E;
-    }
+		.btn-outline-primary:hover {
+			background-color: #50777E;
+			border-color: #50777E;
+			color: rgb(255, 255, 255);
+		}
 
-    .btn-outline-primary:hover {
-        background-color: #50777E;
-        border-color: #50777E;
-        color: rgb(255,255,255);
-    }
+		.card {
+			border: 1px solid #FFFFFF;
+			padding: 0rem;
 
-    .card {
-      border: 1px solid #FFFFFF;
-    }
+		}
 
-    /* If on phone, card decks have slight bezels & custom centering */
-    @media (max-width: 544px) {
-      .card-deck {
-        padding-right: 0.6rem;
-        padding-left: 0.6rem;
-        text-align:center;
-        display:inline-block;
-      }
-    }
-    /* If not on phone, card decks have main margins */
-    @media (min-width: 544px) {
-      .card-deck {
-        margin-left: 20%;
-        margin-right:20%;
-      }
-    }
+		/* If on phone, card decks have slight bezels & custom centering */
+		@media (max-width: 544px) {
+			.card-deck {
+				padding-right: 0.6rem;
+				padding-left: 0.6rem;
+				text-align: center;
+				display: inline-block;
+			}
+		}
 
-  </style>
+		/* If not on phone, card decks have ~main margins */
+		@media (min-width: 544px) {
+			.card-deck {
+				margin-left: 17%;
+				margin-right: 17%;
+			}
+		}
+
+		@media (min-width: 544px) {
+			.card {
+				padding: 5%;
+				padding-top: 3%;
+				padding-bottom: 3%;
+			}
+		}
+
+		@media (max-width: 544px) {
+			.card {
+				padding-bottom: 5%;
+			}
+		}
+
+		.card-img-top {
+			border-top-width: 1px;
+			border-right-width: 1px;
+			border-bottom-width: 1px;
+			border-left-width: 1px;
+			border-top-style: solid;
+			border-right-style: solid;
+			border-bottom-style: solid;
+			border-left-style: solid;
+		}
+	</style>
 </head>
 
 <body>
-  <!-- Banner & Navbar -->
+  <!-- Banner Navbar -->
   <nav class="navbar navbar-light" style="background-image: url('https://jchavez.io/images/sur_waves_2.jpg'); min-height:6rem; background-size:100%; background-repeat: no-repeat; margin-bottom:2.5rem; font-size:2rem;" width="100%" height=100%>
     <a href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width:10rem; display:table-cell; vertical-align:middle;"/></a>
     <a hclass="nav-link ml-auto" ref="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,5 +104,16 @@
        <a class="dropdown-item" href="https://jchavez.io/files/Chavez_Resume.pdf">CV</a>
     </div>
   </nav>
+ 
  {{ content }}
+
+ <!-- Footer -->
+ <div id="footer">
+  <p id="padding" style="margin-top:6rem;"></p>
+  <div class="card-header" style="text-align:right; background-image: linear-gradient(to right, rgba(119, 156, 177, .25) , rgba(119, 177, 168, .25)); color:rgba(80, 119, 126)"> 
+    Banner from a 2019 trip to Big Sur.
+    Site course code <a href="https://github.com" style="color:rgba(80, 119, 126);"> here </a>. 
+  </div>
+</div>
+
  </body>
