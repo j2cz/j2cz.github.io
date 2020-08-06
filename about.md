@@ -25,6 +25,6 @@ Skills
 * Periscope/Sisense
 * Basic html/css/js 
   * This site ([source code](https://github.com/j2cz/j2cz.github.io))
-  * And [cleanmeat.news](https://cleanmeat.news). ([Source code](https://github.com/j2cz/j0hnchavez.github.io))
+  * And [cleanmeat.news](https://cleanmeat.news). ([Source code](https://github.com/j0hnchavez/j0hnchavez.github.io)
 
 </div>
