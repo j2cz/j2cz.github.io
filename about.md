@@ -21,23 +21,18 @@ At work I build interactive dashboards for businesspeople, engineers, customers,
 
 <p style="margin-bottom:2rem;"></p>
 
-Skills
+My skills include
 * R
 * SQL
 * Python
 * Plotly
 * Periscope/Sisense
-* Basic html/css/js 
+* Basic HTML/CSS/JS 
   * This site ([source code](https://github.com/j2cz/j2cz.github.io))
   * And [cleanmeat.news](https://cleanmeat.news) ([source code](https://github.com/j0hnchavez/j0hnchavez.github.io))
-
-</div>
-
- <!-- Footer -->
- <div id="footer">
-  <p id="padding" style="margin-top:6rem;"></p>
-  <div class="card-header" style="text-align:right; background-image: linear-gradient(to right, rgba(119, 156, 177, .25) , rgba(119, 177, 168, .25)); color:rgba(80, 119, 126); position:absolute; bottom:0px; width:100%"> 
-    Banner from a 2019 trip to Big Sur.
-    Site source code <a href="https://github.com/j2cz/j2cz.github.io" style="color:rgba(80, 119, 126);"> here </a>. 
-  </div>
+* Basic Go, Java, C & Bash
+  * Go: [HTTPS proxy servers](https://jchavez.io/https)
+  * Java: [Virtual garden](https://github.com/j0hnchavez/garden)
+  * C: [Blackjack simulator](https://github.com/j0hnchavez/blackjack)
+  * Bash: [Cryptowatch Plus](https://github.com/j0hnchavez/cryptowatch-plus)
 </div>
