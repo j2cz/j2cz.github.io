@@ -1,48 +1,99 @@
 ---
 layout: default
 ---
-<div class="main" style="margin-left:20%; margin-right:20%;">
-  <p style="font-size:2.5rem; margin-bottom:2.5rem;"> Hi. My name is John.</p>
-  <p style="margin-bottom:2.5rem;">I'm a data analyst in the Bay. This is my site.</p>
-</div>
-  <div class="card-deck" style="margin-top: 1rem;">
-    
-    <!-- Blog 1, HTTPS -->
-    <div class="card" style="width: 21rem; display:inline-block; margin:0.5vw">
-      <a href="https://jchavez.io/posts/https" style="color:black;">
-          <img src="https://i.postimg.cc/FsGj7gqt/secure2.png" class="card-img-top">
-      </a>
-      <div class="card-body d-flex flex-column" style="text-align: left; padding:0.5rem;">
-          <a href="https://jchavez.io/posts/https" style="font-size:1.5rem; font-weight:400; margin-bottom:0.2rem; color:black;">HTTPS Proxies</a>
-        <p></p>
-        <p style="font-size:1.5rem; margin-bottom:0.4rem;">How to proxy any process to HTTPS, for free, with ~30 lines of Go.</p>
+<body>
+   <!-- Main -->
+   <div class="main-txt">
+      <div class="row" id="title">
+         <div class="col-sm">
+            <p style="font-size:2.5rem;">Hi, I'm John.</p>
+         </div>
       </div>
-    </div>
-    
-    <!-- Blog 2, Mortgages -->
-    <div class="card" style="width: 21rem; display:inline-block; margin:0.5vw">
-            <a href="https://jchavez.io/posts/mortgage" style="color:black;">
-        <img src="https://i.postimg.cc/J1yzk8fW/mortgage-cover.png" class="card-img-top">
-        </a>
-      <div class="card-body d-flex flex-column" style="text-align: left; padding:0.5rem;">
-        <a href="https://jchavez.io/posts/mortgage" style="font-size:1.5rem; font-weight:400; margin-bottom:0.2rem; color:black;">Mortgages vs. Cash</a>
-        <p></p>
-        <p style="font-size:1.5rem; margin-bottom:0.4rem;">If you invested all of your unused money, could a mortgage be cheaper than buying a house with cash?</p>
+      <div class="row" id="sub-title">
+         <div class="col-sm">
+            <p style="margin-bottom:2.5rem;">I'm a data analyst in the Bay.</p>
+         </div>
       </div>
-    </div>
-
-  </div>
-
-<div class="main">
-    <p style="margin-bottom:2.5rem;">
-      View all of my <a href="https://jchavez.io/blog">blog posts</a>.
-    </p>
-
-    <p style="margin-bottom:2.5rem;">
-      Learn <a href="https://jchavez.io/about">about me</a>.
-    </p>
-
-    <p style="margin-bottom:2.5rem;">
-      Check out my <a href="https://jchavez.io/work">sample work</a>.
-    </p>
-</div>
+      <div class="row" id="blogs-text">
+         <div class="col-sm">
+            <p style="padding-bottom:5%;">Here are my latest <a href="https://jchavez.io/blog">blog posts</a>:</p>
+         </div>
+      </div>
+      <div class="row" id="blogs">
+         <div class="col-md" id ="first-card">
+            <div class="card shadow-card" style="display:inline-block; margin:0.5vw">
+               <a class="stretched-link" href="https://jchavez.io/posts/https" style="color:black;">
+               <img src="https://i.postimg.cc/FsGj7gqt/secure2.png" class="card-img">
+               </a>
+               <div class="card-body d-flex flex-column" style="text-align: left; padding:0.5rem;">
+                  <a href="https://jchavez.io/posts/https" style="font-size:1.5rem; font-weight:400; margin-bottom:0.2rem; color:black;">HTTPS Proxies</a>
+                  <p></p>
+                  <p style="font-size:1.5rem; margin-bottom:0.4rem;">How to proxy any process to HTTPS, for free, with ~30 lines of Go.</p>
+               </div>
+            </div>
+         </div>
+         <div class="col-md">
+            <div class="card shadow-card" style="display:inline-block; margin:0.5vw">
+               <a  class="stretched-link" href="https://jchavez.io/posts/mortgage" style="color:black;">
+               <img src="https://i.postimg.cc/J1yzk8fW/mortgage-cover.png" class="card-img">
+               </a>
+               <div class="card-body d-flex flex-column" style="text-align: left; padding:0.5rem;">
+                  <a href="https://jchavez.io/posts/mortgage" style="font-size:1.5rem; font-weight:400; margin-bottom:0.2rem; color:black;">Mortgages vs. Cash</a>
+                  <p></p>
+                  <p style="font-size:1.5rem; margin-bottom:0.4rem;">If you invested all of your unused money, could a mortgage be cheaper than buying a house with cash?</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row" id="sample-work-text">
+         <div class="col-sm">
+            <p style="padding-bottom:5%; padding-top:5%;">You can also check out some of my <a href="https://jchavez.io/work">sample work</a>:</p>
+         </div>
+      </div>
+      <div class="row" id="sample-work">
+         <div class="col-md">
+            <div class="card shadow-card" style="display:inline-block; margin:0.5vw">
+               <a href="https://jchavez.io/work" style="color:black;">
+               <img src="https://i.postimg.cc/JmvbTXrH/Screenshot-2020-08-10-at-3-10-10-PM.png" class="card-img">
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- Start about --
+      <div class="row" id="about-text">
+         <div class="col-sm">
+            <p style="padding-bottom:5%; padding-top:5%;">Learn a bit more about me:</p>
+         </div>
+      </div>
+      <div class="row" id="about">
+         <div class="col-sm">
+            <div id="accordion">
+               <hr>
+               <div id="bio-btn">
+                  <a class="btn btn-link collapsed" data-toggle="collapse" href="#bio-txt" aria-expanded="true" aria-controls="bio-txt">
+                  Bio
+                  </a>
+               </div>
+               <div id="bio-txt" class="collapse" aria-labelledby="bio-btn" data-parent="#accordion">
+                  <p>
+                     Biooooooooooooooooooooo sic semper tyrannus
+                  </p>
+               </div>
+               <hr>
+               <div id="skills-btn">
+                  <a class="btn btn-link btn-block collapsed" data-toggle="collapse" href="#skills-txt" aria-expanded="true" aria-controls="skills-txt">
+                  <span class="right">+</span><span class="left">Skills</span>
+                  </a>
+               </div>
+               <div id="skills-txt" class="collapse" aria-labelledby="skills-btn" data-parent="#accordion">
+                  <p>
+                     Omg so many skills wtf
+                  </p>
+               </div>
+               <hr style="margin-top:2.5rem;">
+            </div>
+         </div>
+      </div>
+      <-- End about -->
+   </div>
+</body>

@@ -1,20 +1,27 @@
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="John Chavez's personal site.">
-  <!-- Navbar -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- /Navbar -->
-  <title> John Chavez </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="John Chavez's personal site.">
+	<!-- Navbar -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js">
+	</script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	 crossorigin="anonymous">
+	<!-- /Navbar -->
+	<title> John Chavez </title>
 	<style>
 		p {
-			/*font-family: Inter, Arial, sans-serif;*/
 			font-weight: 300;
-			font-size: 2rem;
+			font-size: 1.8rem;
 			margin-top: 0;
 			margin-bottom: 0;
 		}
@@ -22,7 +29,7 @@
 		a,
 		a:hover {
 			color: #50777E;
-			font-weight: 600;
+			font-weight: 500;
 		}
 
 		.btn-outline-primary,
@@ -40,12 +47,11 @@
 		}
 
 		.card {
-			border: 1px solid #FFFFFF;
+			border: 0px solid #FFFFFF;
 			padding: 0rem;
-
 		}
 
-		/* If on phone, card decks have slight bezels & custom centering */
+		/* Phones */
 		@media (max-width: 544px) {
 			.card-deck {
 				padding-right: 0.6rem;
@@ -53,31 +59,28 @@
 				text-align: center;
 				display: inline-block;
 			}
+			.card {
+				padding-bottom: 5%;
+			}
+			.main-txt {
+				padding-right: 10%;
+				padding-left: 10%;
+			}
 		}
 
-		/* If not on phone, card decks have ~main margins */
+		/* Computers & tablets */
 		@media (min-width: 544px) {
 			.card-deck {
 				margin-left: 17%;
 				margin-right: 17%;
 			}
-		}
-
-		@media (min-width: 544px) {
-			.card {
-				padding: 5%;
-				padding-top: 3%;
-				padding-bottom: 3%;
+			.main-txt {
+				margin-left: 20%;
+				margin-right: 20%;
 			}
 		}
 
-		@media (max-width: 544px) {
-			.card {
-				padding-bottom: 5%;
-			}
-		}
-
-		.card-img-top {
+		.card-img {
 			border-top-width: 1px;
 			border-right-width: 1px;
 			border-bottom-width: 1px;
@@ -87,13 +90,27 @@
 			border-bottom-style: solid;
 			border-left-style: solid;
 		}
+
+		.shadow-card:hover {
+			box-shadow: 0px 3px 12px lightgray;
+			-webkit-transition: box-shadow .4s ease-in;
+		}
+
+		.right {
+			float: right;
+		}
+
+		.left {
+			float: left;
+		}
 	</style>
 </head>
 
 <body>
-  <!-- Banner Navbar -->
-  <nav class="navbar navbar-light" style="background-image: url('https://jchavez.io/images/sur_waves_2.jpg'); min-height:6rem; background-size:100%; background-repeat: no-repeat; margin-bottom:2.5rem; font-size:2rem;" width="100%" height=100%>
-    <a href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width:10rem; display:table-cell; vertical-align:middle;"/></a>
+	<!-- Banner Navbar -->
+	<nav class="navbar navbar-light" style="background-image: url('https://jchavez.io/images/sur_waves_2.jpg'); min-height:6rem; background-size:100%; background-repeat: no-repeat; margin-bottom:2.5rem; font-size:2rem;"
+	 width="100%" height=100%>
+		<a href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width:10rem; display:table-cell; vertical-align:middle;"/></a>
     <a hclass="nav-link ml-auto" ref="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <img src="https://i.postimg.cc/nh6PSgMc/toggl2e.png" style="width:3rem;">
     </a>
