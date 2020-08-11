@@ -1,0 +1,214 @@
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="John Chavez's personal site.">
+   <!-- Navbar -->
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
+   <!-- /Navbar -->
+   <title> John Chavez </title>
+   <style>
+      p {
+      font-weight: 300;
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 0;
+      }
+      a,
+      a:hover {
+      color: #50777E;
+      font-weight: 500;
+      }
+      .btn-outline-primary,
+      .btn-outline-primary:active,
+      .btn-outline-primary:visited {
+      background-color: rgb(255, 255, 255);
+      border-color: #50777E;
+      color: #50777E;
+      }
+      .btn-outline-primary:hover {
+      background-color: #50777E;
+      border-color: #50777E;
+      color: rgb(255, 255, 255);
+      }
+      .card {
+      border: 0px solid #FFFFFF;
+      padding: 0rem;
+      }
+      /* Phones */
+      @media (max-width: 544px) {
+        .card-deck {
+        padding-right: 0.6rem;
+        padding-left: 0.6rem;
+        text-align: center;
+        display: inline-block;
+        }
+        .card {
+        padding-bottom: 5%;
+        }
+        .main-txt {
+        padding-right: 10%;
+        padding-left: 10%;
+        }
+        #first-card {
+        border-bottom: black;
+        border-bottom-width: 3px;
+        }
+      }
+      /* Computers & tablets */
+      @media (min-width: 544px) {
+        .card-deck {
+        margin-left: 17%;
+        margin-right: 17%;
+        }
+        .main-txt {
+        margin-left: 20%;
+        margin-right: 20%;
+        }
+      }
+      .card-img {
+      border-top-width: 1px;
+      border-right-width: 1px;
+      border-bottom-width: 1px;
+      border-left-width: 1px;
+      border-top-style: solid;
+      border-right-style: solid;
+      border-bottom-style: solid;
+      border-left-style: solid;
+      }
+   </style>
+</head>
+<body>
+   <!-- Navbar -->
+   <nav class="navbar navbar-light" style="background-image: url('https://jchavez.io/images/sur_waves_2.jpg'); min-height:6rem; background-size:100%; background-repeat: no-repeat; margin-bottom:2.5rem; font-size:2rem;"
+      width="100%" height=100%>
+      <a href="http://jchavez.io"><img src="https://i.postimg.cc/02Msw-HnC/jchav.png" style="width:10rem; display:table-cell; vertical-align:middle;"/></a>
+      <a hclass="nav-link ml-auto" ref="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <img src="https://i.postimg.cc/nh6PSgMc/toggl2e.png" style="width:3rem;">
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink2">
+         <a class="dropdown-item" href="https://jchavez.io/">Home</a>
+         <a class="dropdown-item" href="https://jchavez.io/blog">Blog</a>
+         <a class="dropdown-item" href="https://jchavez.io/work">Sample Work</a>
+      </div>
+   </nav>
+   <!-- Main -->
+   <div class="main-txt">
+      <div class="row" id="title">
+         <div class="col-sm">
+            <p style="font-size:2.5rem;">Hi, I'm John.</p>
+         </div>
+      </div>
+      <div class="row" id="sub-title">
+         <div class="col-sm">
+            <p>I'm a data analyst in the Bay.</p>
+         </div>
+      </div>
+      <div class="spacer" style="margin-bottom:2.5rem;"></div>
+      <div class="row" id="blogs-text">
+         <div class="col-sm">
+            <p style="padding-bottom:5%;">Here are my latest <a href="https://jchavez.io/blog">blog posts</a>:</p>
+         </div>
+      </div>
+      <div class="row" id="blogs">
+         <div class="col-md" id ="first-card">
+            <div class="card" style="display:inline-block; margin:0.5vw">
+               <a href="https://jchavez.io/posts/https" style="color:black;">
+               <img src="https://i.postimg.cc/FsGj7gqt/secure2.png" class="card-img">
+               </a>
+               <div class="card-body d-flex flex-column" style="text-align: left; padding:0.5rem;">
+                  <a href="https://jchavez.io/posts/https" style="font-size:1.5rem; font-weight:400; margin-bottom:0.2rem; color:black;">HTTPS Proxies</a>
+                  <p></p>
+                  <p style="font-size:1.5rem; margin-bottom:0.4rem;">How to proxy any process to HTTPS, for free, with ~30 lines of Go.</p>
+               </div>
+            </div>
+         </div>
+         <div class="col-md">
+            <div class="card" style="display:inline-block; margin:0.5vw">
+               <a href="https://jchavez.io/posts/mortgage" style="color:black;">
+               <img src="https://i.postimg.cc/J1yzk8fW/mortgage-cover.png" class="card-img">
+               </a>
+               <div class="card-body d-flex flex-column" style="text-align: left; padding:0.5rem;">
+                  <a href="https://jchavez.io/posts/mortgage" style="font-size:1.5rem; font-weight:400; margin-bottom:0.2rem; color:black;">Mortgages vs. Cash</a>
+                  <p></p>
+                  <p style="font-size:1.5rem; margin-bottom:0.4rem;">If you invested all of your unused money, could a mortgage be cheaper than buying a house with cash?</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row" id="sample-work-text">
+         <div class="col-sm">
+            <p style="padding-bottom:5%; padding-top:5%;">You can also check out some of my <a href="https://jchavez.io/work">sample work</a>:</p>
+         </div>
+      </div>
+      <div class="row" id="sample-work">
+         <div class="col-md">
+            <div class="card" style="display:inline-block; margin:0.5vw">
+               <a href="https://jchavez.io/posts/mortgage" style="color:black;">
+               <img src="https://i.postimg.cc/JmvbTXrH/Screenshot-2020-08-10-at-3-10-10-PM.png" class="card-img">
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="row" id="about-text">
+         <div class="col-sm">
+            <p style="padding-bottom:5%; padding-top:5%;">Learn a bit more about me:</p>
+         </div>
+      </div>
+      <div class="row" id="about">
+         <div class="col-sm">
+            <div id="accordion">
+               <div class="card">
+                  <div class="card-header" id="headingOne">
+                     <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Bio
+                        </button>
+                     </h5>
+                  </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                     <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                     </div>
+                  </div>
+               </div>
+               <div class="card">
+                  <div class="card-header" id="headingTwo">
+                     <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Skills
+                        </button>
+                     </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                     <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                     </div>
+                  </div>
+               </div>
+               <div class="card">
+                  <div class="card-header" id="headingThree">
+                     <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Projects
+                        </button>
+                     </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                     <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
