@@ -4,3 +4,5 @@ Gemfile.lock
 _site/
 .Rproj.user
 j2cz.github.io.Rproj
+.RData
+.Rhistory
