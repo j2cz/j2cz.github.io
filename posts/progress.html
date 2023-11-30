@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progress</title>
+    <style>
+        /* Centering the text in the middle of the page */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px; /* Big text */
+        }
+    </style>
+</head>
+<body>
+    <div id="progress"></div>
+    <script>
+        function progress(start, end) {
+            const separated_time = end - start
+            console.log("separated for: ", separated_time.toLocaleString(), "ms")
+
+            const progress_time = Date.now() - start
+            console.log("we've endured: ", progress_time.toLocaleString(), "ms")
+
+            const percent = (progress_time / separated_time)
+            console.log("we've endured: ", percent*100, "%")
+
+            return percent
+        }
+
+        function fmt(percent){
+            return (percent*100).toFixed(2) + "%"
+        }
+    
+        const startDate = new Date('Nov 29 2023 12:30');
+        const endDate = new Date('Dec 6 2023 06:56');
+    
+        console.log(progress(startDate, endDate) + '%');
+
+        document.getElementById('progress').innerHTML = fmt(progress(startDate, endDate));
+    </script>
+</body>
+</html>
